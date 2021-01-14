@@ -1,22 +1,6 @@
 <?php
-
-$sql = "
-    SELECT *
-    FROM user
-";
-
-$stmt = $pdo->prepare($sql);
-
-$stmt->execute();
-
-$stmt->fetchAll();
-
-try {
-    $stmt->execute();
-    return $stmt->fetch();
-} catch(Execption $e) {
-    $pdo->rollBack();
-    throw $e;
-}
-
+include_once '../model/clientManager.php';
+$clientManager= new ClientManager();
+$listClients= $clientManager->getAllClients();
+var_dump($listClients);
 include '../view/home_view.php';
