@@ -25,7 +25,7 @@ class ItemManager extends Manager{
             throw $e;
         }
     }
-    
+
     public function getItemsByCategory($nameCategory) {
         $stmt = $this->_pdo->prepare(
             "SELECT * FROM item 
@@ -39,7 +39,7 @@ class ItemManager extends Manager{
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            //$this->_pdo->rollBack();
+            $this->_pdo->rollBack();
             throw $e;
         }
     }
