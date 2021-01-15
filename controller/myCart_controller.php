@@ -2,12 +2,13 @@
 
 include_once '../model/clientManager.php';
 include_once '../model/commandManager.php';
+include_once '../model/contentCommandManager.php';
 
 if(isset($_SESSION['user'])){
     $commandManager= new CommandManager();
-    var_dump($_SESSION['user']['id']);
-    $cartId= $commandManager->getCartId($_SESSION['user']['id']);
-    var_dump($cartId);
+    $contentCommandManager= new ContentCommandManager();
+    $cartId= $commandManager->getCartId($_SESSION['user']['id'])['id'];
+    $contentCart= $contentCommandManager->getContentByCommandId($cartId);
 }
 
 
