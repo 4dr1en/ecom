@@ -1,10 +1,10 @@
 <?php
 
-class OrderManager extends Manager{
+class CommandManager extends Manager{
 
     public function getOrdersByUserId($clientId) {
         $stmt = $this->_pdo->prepare(
-            "SELECT * FROM `order` 
+            "SELECT * FROM command
             WHERE id_client = :id_client"
         );
 

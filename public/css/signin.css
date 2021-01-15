@@ -1,0 +1,87 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    background-size: cover;
+}
+
+main h2{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+/*form*/
+#register{
+    display: flex;
+    flex-direction: column;
+
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+#register>div{
+    display: grid;
+    grid-gap: 20px 65px;
+    grid-template-columns: 1fr 220px;
+}
+
+#register label, form p{
+    text-align: right;
+    justify-self: flex-end;
+    font-size: 1.2rem;
+}
+
+#register input{
+    height: 25px;
+}
+
+#register input[type="submit"]{
+    margin-top: 20px;
+    padding: 5px;
+    width: 30%;
+    height: auto;
+    align-self: center;
+
+    font-size: 1.1rem;
+    background-color: white;
+    border: 1px solid rgb(124, 124, 124);
+    color: black;
+}
+
+#register input[type="submit"]:hover{
+    border: 1px solid black;
+}
+
+#errorsForm{
+    border: 1px solid red;
+    background-color: rgba(243, 184, 172, 0.4);
+    color: rgba(156, 37, 37, 0.746);
+    box-shadow: 1px 3px 4px rgb(156, 156, 156);
+    position: relative;
+    padding: 0 60px;
+    width: 600px;
+    font-size: 1.1rem;
+}
+
+#closeErrors{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(255, 108, 108);
+    background-color: rgb(250, 206, 206);
+    border-radius: 3px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#closeErrors:hover{
+    border: 1px solid red;
+    cursor: pointer;
+}
