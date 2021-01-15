@@ -1,22 +1,12 @@
 <?php
+include_once '../model/clientManager.php';
+include_once '../model/itemManager.php';
+$clientManager= new ClientManager();
+$listClients= $clientManager->getAllClients();
 
-$sql = "
-    SELECT *
-    FROM user
-";
 
-$stmt = $pdo->prepare($sql);
+$items = new ItemManager();
+$listItems = $items->getAllItems();
 
-$stmt->execute();
-
-$stmt->fetchAll();
-
-try {
-    $stmt->execute();
-    return $stmt->fetch();
-} catch(Execption $e) {
-    $pdo->rollBack();
-    throw $e;
-}
-
-include '../view/home_view.php';
+$PAGE['mainSectionHtml']= '../view/home_view.php';
+include '../view/view.php';

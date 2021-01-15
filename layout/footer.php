@@ -1,4 +1,3 @@
-
-<p>Copyright</p>
-</body>
-</html>
+<footer>
+    <p>Copyright</p>
+</footer>
