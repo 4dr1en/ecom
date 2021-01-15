@@ -24,11 +24,14 @@ switch ($slug) {
     case '/categorie':
         include '../controller/show_categorie_controller.php';
         break;
+    case '/mycart':
+        include '../controller/mycart_controller.php';
+        break;
+
     default:
         include "../controller/404_controller.php";
         break;
 }
 
 
-?>
 

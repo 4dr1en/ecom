@@ -3,10 +3,8 @@
 class ClientManager extends Manager{
 
     public function getAllClients() {
-        $sql = "SELECT * FROM client";
-        $stmt = $this->_pdo->prepare($sql);
-        $stmt = $this->_pdo->prepare("SELECT * FROM client");    
-        
+        $stmt = $this->_pdo->prepare("SELECT * FROM client");
+    
         try {
             $stmt->execute();
             return $stmt->fetchAll();
@@ -15,9 +13,10 @@ class ClientManager extends Manager{
             throw $e;
         }
     }
+
     public function emailExist(string $email){
         $stmt = $this->_pdo->prepare("SELECT count(*) AS nb FROM client WHERE email = :email");
-        $stmt->bindValue('email', $email);
+        $stmt->bindValue(':email', $email);
 
         try {
             $stmt->execute();
@@ -31,7 +30,7 @@ class ClientManager extends Manager{
 
     public function getUserByEmail(string $email){
         $stmt = $this->_pdo->prepare("SELECT * FROM client WHERE email = :email");
-        $stmt->bindValue('email', $email);
+        $stmt->bindValue(':email', $email);
 
         try {
             $stmt->execute();
