@@ -1,7 +1,7 @@
 <?php
 // Database connection : $pdo
 include_once '../model/manager.php';
-
+session_start();
 // Manage query strings
 $slug =  explode('?', $_SERVER['REQUEST_URI'])[0];
 
