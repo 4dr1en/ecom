@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <title><?php 
-        if(isset($PAGE['title']))print($PAGE["title"]);
+        if(isset($PAGE['title']))print('<link rel="stylesheet" href="'.$PAGE['additionalCSS'].'">');
         else print('shop');
     ?></title>
-    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/style/main.css">
     <?php
         if(isset($PAGE['additionalCSS'])){
             print('<link rel="stylesheet" href="'.$PAGE['additionalCSS'].'">');
