@@ -18,4 +18,8 @@ class OrderManager extends Manager{
             throw $e;
         }
     }
+    
+    public function getCartId($clientId){
+
+    }
 }
