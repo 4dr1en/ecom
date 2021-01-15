@@ -1,17 +1,35 @@
 <main>
-    <h1>Formulaire d'inscrption</h1>
+    <?php
+        if($newUserRegistered){
+            ?>
+            <p>congratulations your account has been successfully created,<br> <a href="index">return to home</a></p>
+            <?php
+        }  
+    ?>
+    <h2>Registration</h2>
+    <?php
+        if(count($txtErrors)) {
+            print('<div id="errorsForm">');
+            foreach ($txtErrors as $error) {
+                print('<p>'.$error.'</p>');
+            }
+            print('<div id="closeErrors">X</div></div>');
+        }
+    ?>
+    <form action="/signin" method="post" id="register">
+        <div>
+            <label for="firstname">Your first name</label><input type="text" name="firstname" id="firstname">
+            <label for="lastname">You last name</label><input type="text" name="lastname" id="lastname">
 
-    <form action="/signin" method="post" >
+            <label for="email">Your email</label><input type="email" name="email" id="email">
 
-        <label for="firstname">First Name:</label>
-        <input id="firstname" name="firstname" type="text">
+            <label for="phone">Your phone number</label><input type="tel" name="phone" id="phone">
 
-        <label for="lastname">Last Name:</label>
-        <input id="lastname" name="lastname" type="text">
-
-        <label for="email">Email:</label>
-        <input id="email" name="email" type="text">
-
-        <button type="submit">Submit</button>
+            <label for="pwd1">Your strong password</label><input type="password" name="pwd1" id="pwd1">
+            <label for="pwd2">Please retype your password</label><input type="password" name="pwd2" id="pwd2">        
+        </div>
+        <input type="submit" value="Send">
     </form>
 </main>
+
+
