@@ -17,7 +17,8 @@
     <?php endforeach ?>
 </ul>
 <div class="row">
-    <?php foreach($items as $item): ?>
+    <?php if(isset($_GET['catid'])) {
+        foreach($items as $item) { ?>
     <div class="col-3">
         <div class="card">
             <h5 class="card-title"><?= htmlentities($item['name']) ?></h5>
@@ -27,7 +28,7 @@
             </p>
         </div>
     </div>
-    <?php endforeach ?>
+    <?php }}?>
 </div>
 </body>
 

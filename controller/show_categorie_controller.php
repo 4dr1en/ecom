@@ -7,5 +7,5 @@ if(isset($_GET['catid'])) {
     $id = (int)$_GET['catid'];
     $items = $im->getItemsByCategory($id);
 }
-$PAGE['mainSectionHtml']= '../view/show_catégorie_view.php';
+$PAGE['mainSectionHtml']= '../view/show_categorie_view.php';
 include '../view/view.php';
