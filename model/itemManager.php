@@ -25,11 +25,7 @@ class ItemManager extends Manager{
             throw $e;
         }
     }
-}
-<?php
-
-class ItemManager extends Manager{
-
+    
     public function getItemsByCategory($nameCategory) {
         $stmt = $this->_pdo->prepare(
             "SELECT * FROM item 
