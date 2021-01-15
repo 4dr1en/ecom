@@ -8,7 +8,7 @@ $txtErrors = [];
 $newUserRegistered= false;
 if(isset($_POST['firstname'])){
     //test session
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['user'])){
         $error = true;
         $txtErrors[] = 'You are already connected';
     }

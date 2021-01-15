@@ -28,6 +28,19 @@ class ClientManager extends Manager{
         }
     }
 
+    public function getUserByEmail(string $email){
+        $stmt = $this->_pdo->prepare("SELECT * FROM client WHERE email = :email");
+        $stmt->bindValue('email', $email);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetch();
+        }catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
     public function setNewUser($userData){
         $stmt = $this->_pdo->prepare("
             INSERT INTO client (first_name, last_name, email, password, phone) 

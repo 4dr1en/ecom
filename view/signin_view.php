@@ -2,7 +2,7 @@
     <?php
         if($newUserRegistered){
             ?>
-            <p>congratulations your account has been successfully created,<br> <a href="index">return to home</a></p>
+            <p>congratulations your account has been successfully created,<br> <a href="/">return to home</a></p>
             <?php
         }  
     ?>
