@@ -16,7 +16,7 @@ class ClientManager extends Manager{
 
     public function emailExist(string $email){
         $stmt = $this->_pdo->prepare("SELECT count(*) AS nb FROM client WHERE email = :email");
-        $stmt->bindValue('email', $email);
+        $stmt->bindValue(':email', $email);
 
         try {
             $stmt->execute();
@@ -30,7 +30,7 @@ class ClientManager extends Manager{
 
     public function getUserByEmail(string $email){
         $stmt = $this->_pdo->prepare("SELECT * FROM client WHERE email = :email");
-        $stmt->bindValue('email', $email);
+        $stmt->bindValue(':email', $email);
 
         try {
             $stmt->execute();
