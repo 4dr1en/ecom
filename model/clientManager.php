@@ -4,7 +4,6 @@ class ClientManager extends Manager{
 
     public function getAllClients() {
         $sql = "SELECT * FROM client";
-        var_dump($this->_pdo);
         $stmt = $this->_pdo->prepare($sql);
     
         try {

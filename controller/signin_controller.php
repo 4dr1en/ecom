@@ -1,9 +1,7 @@
 <?php
 
-include '../view/signin_view.php';
-include '../model/user.php';
+include '../model/clientManager.php';
 
-if(isset($_POST['firstname'])) {
-    addUser($pdo, $_POST);
-}
+$PAGE['mainSectionHtml']= '../view/signin_view.php';
+include '../view/view.php';
 

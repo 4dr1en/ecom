@@ -2,8 +2,6 @@
 // Database connection : $pdo
 include_once '../model/manager.php';
 
-include '../layout/header.php';
-
 // Manage query strings
 $slug =  explode('?', $_SERVER['REQUEST_URI'])[0];
 
@@ -22,7 +20,6 @@ switch ($slug) {
         break;
 }
 
-include '../layout/footer.php';
 
 ?>
 
