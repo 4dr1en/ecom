@@ -1,6 +1,6 @@
 <?php
 // Database connection : $pdo
-include_once '../pdo_connection.php';
+include_once '../model/manager.php';
 
 include '../layout/header.php';
 
