@@ -12,7 +12,7 @@ $listClients= $clientManager->getAllClients();
 
 $orderManager= new CommandManager();
 $listOrders= $orderManager->getOrdersByUserId(5);
-var_dump($listOrders);
+print_r($listOrders);
 
 
 $items = new ItemManager();

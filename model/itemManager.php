@@ -26,20 +26,34 @@ class ItemManager extends Manager{
         }
     }
     
-    public function getItemsByCategory($nameCategory) {
+    public function getItemsByCategory($catId) {
         $stmt = $this->_pdo->prepare(
             "SELECT * FROM item 
-            WHERE id_category = 
-                (SELECT id FROM category WHERE name = :nameCategory)"
+             WHERE id_category = 
+                (SELECT id FROM category WHERE id = :catId)"
         );
 
-        $stmt->bindValue(':nameCategory', $nameCategory);
+        $stmt->bindValue(':catId', $catId);
     
         try {
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            //$this->_pdo->rollBack();
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function getAllCategory() {
+        $sql = "SELECT * FROM category";
+        $stmt = $this->_pdo->prepare($sql);
+        $stmt = $this->_pdo->prepare("SELECT * FROM category");    
+        
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
             throw $e;
         }
     }

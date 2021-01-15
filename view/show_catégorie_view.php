@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catégorie</title>
 </head>
 <body>
-
-<h1>ACCUEIL</h1>
-
+<h1>Catégorie</h1>
+<ul>
+    <?php foreach($categories as $category):?>
+    <li>
+        </p>
+            <a href="/categorie<?= '?catid='.$category['id']?>" class="btn"><?= htmlentities($category['name']) ?></a>
+        <p>
+    </li>
+    <?php endforeach ?>
+</ul>
 <div class="row">
-    <?php foreach($listItems as $item): ?>
+    <?php foreach($items as $item): ?>
     <div class="col-3">
         <div class="card">
             <h5 class="card-title"><?= htmlentities($item['name']) ?></h5>
@@ -23,4 +30,5 @@
     <?php endforeach ?>
 </div>
 </body>
+
 </html>
