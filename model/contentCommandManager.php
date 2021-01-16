@@ -84,4 +84,17 @@ class ContentCommandManager extends Manager{
         }
     }
 
+    public function getPrice($contentCart) {
+        
+        $price = 0;
+
+        foreach($contentCart as $item) {
+            $totals[] =(float)$item["quantity"] * (float)$item["price"];
+        }
+        foreach($totals as $total) {
+            $price += $total;
+        }
+        return $price;
+    }
+
 }

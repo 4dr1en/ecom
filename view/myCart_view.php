@@ -11,6 +11,11 @@
             </div>
         <?php
         }
+        ?>
+        <p>Ht = <?= $ht ?></p>
+        <p>Tva = <?= $tva ?></p>
+        <p>Total = <?= $total ?></p>
+    <?php
     }
     ?>
 </main>

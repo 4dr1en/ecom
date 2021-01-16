@@ -8,6 +8,10 @@ if(isset($_SESSION['user'])){
     $contentCommandManager= new ContentCommandManager();
     $cartId= $commandManager->getCartId($_SESSION['user']['id']);
     $contentCart= $contentCommandManager->getContentByCommandId($cartId);
+
+    $total= $contentCommandManager->getPrice($contentCart);
+    $tva= round((1/6) * $total, 2);
+    $ht= $total - $tva;
 }
 
 
