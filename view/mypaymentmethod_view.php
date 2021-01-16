@@ -1,7 +1,6 @@
 <h2>My Payment Method</h2>
 
 <a href="/mypaymentmethod?payment=add">Add payment method</a>
-<a href="/mypaymentmethod?payment=remove">Remove payment method</a>
 
 <table>
   <tr>
@@ -16,6 +15,7 @@
     <td><?= $paymentMethodByCard['cardName']?></td>
     <td><?= $paymentMethodByCard['cardNumber']?></td>
     <td><?= $paymentMethodByCard['cardDate']?></td>
+    <td><a href="/mypaymentmethod?payment=remove&paymentMethodId=<?= $paymentMethodByCard['id']?>">Remove</a></td>
   </tr>
   <?php }?>
 </table>
@@ -27,7 +27,8 @@
     <?php foreach($paymentsMethodByPaypal as $paymentMethodByPaypal) {?>
     <tr>
       <td>&nbsp;</td>
-      <td><?= $paymentMethodByCard['value']?></td>
+      <td><?= $paymentMethodByPaypal['value']?></td>
+      <td><a href="/mypaymentmethod?payment=remove&paymentMethodId=<?= $paymentMethodByCard['id']?>">Remove</a></td>
     </tr>
     <?php }?>
 </table>
