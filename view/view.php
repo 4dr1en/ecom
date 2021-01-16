@@ -14,7 +14,7 @@
         }
     ?>
     
-    <script src="/public/script/main.js" defer></script>
+    <script src="/public/js/main.js" defer></script>
     <?php
         if(isset($PAGE['additionalJS'])){
             print('<script src="'.$PAGE['additionalJS'].'" defer></script>');
