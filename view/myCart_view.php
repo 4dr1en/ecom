@@ -19,7 +19,7 @@
                 <td><h3><?= $productLine['name'] ?></h3></td>
                 <td><?= $productLine['description'] ?></td>
                 <td>
-                    $ <em class="price"><?= $productLine['price'] ?></em>
+                    $<em class="price"><?= $productLine['price'] ?></em>
                 </td>
                 <td>
                     <div class="quantityBox">
@@ -28,6 +28,7 @@
                             name="Quantity-<?= $productLine['id_item']?>" 
                             value="<?= $productLine['quantity']?>" 
                             id="input_l<?= $line?>"
+                            class="quantity"
                         >
                         <em id='l<?=$line?>Quantity'><?= $productLine['quantity'] ?></em>
                         <div class="buttonQuantity">
@@ -43,13 +44,16 @@
         ?>
             </table>
             <input type="submit" name="buy" value="Buy">
-            <input type="submit" name="saveCart" value="Save Cart">
+
+            <div id="saveCart" class="hidden">
+                <input type="submit" name="saveCart" value="Save Cart">
+            </div>
         </form>
 
         <div id="commandInfo">
-            <p>Ht = <?= $ht ?></p>
-            <p>Tva = <?= $tva ?></p>
-            <p>Total = <?= $total ?></p>
+            <p>Ht = $<span id="priceHT"><?= $ht ?></span></p>
+            <p>Tva = $<span id="totalTVA"><?= $tva ?></span></p>
+            <p>Total = $<span id="priceTotal"><?= $total ?></span></p>
         </div>
         
     <?php
@@ -58,3 +62,5 @@
         <div><p>Your cart is empty =(, <a href="/categorie">go shopping !</a></p></div>
     <?php } ?>
 </main>
+
+

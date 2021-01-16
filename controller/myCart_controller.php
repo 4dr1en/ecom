@@ -30,16 +30,7 @@ if(isset($_SESSION['user'])){
         $tva= round((1/6) * $total, 2);
         $ht= $total - $tva; 
     }
-
-
-    
 }
-
-
-
-
-
-
 
 $PAGE['title']= 'My Cart';
 $PAGE['additionalCSS']= '/public/css/mycart.css';

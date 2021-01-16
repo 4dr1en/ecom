@@ -1,4 +1,5 @@
-<h2>My Payment Method</h2>
+<main>
+  <h2>My Payment Method</h2>
 
 <a href="/mypaymentmethod?payment=add">Add payment method</a>
 

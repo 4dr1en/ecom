@@ -1,4 +1,5 @@
 "use strict";
+
 const changesRegistered= {};
 const ELT_table= document.getElementsByTagName('table')[0];
 ELT_table.addEventListener("click", e=>{
@@ -16,6 +17,7 @@ ELT_table.addEventListener("click", e=>{
 
         updateInput(line, newQuantity);
         updateButton();
+        updatePrice();
     }
     else if(e.target.classList.contains('removeQuantity')){
         e.preventDefault();
@@ -31,14 +33,34 @@ ELT_table.addEventListener("click", e=>{
 
         updateInput(line, newQuantity);
         updateButton();
+        updatePrice();
     }
 });
+
+function updatePrice(){
+    const ELTS_quantity= document.getElementsByClassName('quantity');
+    const ELTS_price= document.getElementsByClassName('price');
+    let total= 0;
+    for (let i = 0; i < ELTS_quantity.length; i++) {
+        total+= ELTS_quantity[i].value * ELTS_price[i].textContent;
+    }
+    total= Math.round(total * 100) / 100;
+    const tva= Math.round((1 / 6 * total) * 100) / 100;
+    const ht= Math.round((total - tva) * 100) / 100;
+    document.getElementById('priceHT').textContent= ht;
+    document.getElementById('totalTVA').textContent= tva;
+    document.getElementById('priceTotal').textContent= total;
+}
+
 function updateInput(line, quantity){
     const ELT_input= document.getElementById('input_l'+line);
     ELT_input.value= quantity;
 }
+
 function updateButton(){
+    const ELT_saveCart= document.getElementById('saveCart');
     let changesWaiting= false;
+
     for (const key in changesRegistered) {
         if(changesRegistered[key] == false){ 
             changesWaiting= true;
@@ -46,7 +68,7 @@ function updateButton(){
         }
     }
     if(changesWaiting){
-        console.log('some updates need to be saved');
+        ELT_saveCart.className= '';
     }
-    else console.log('up to date');
+    else ELT_saveCart.className= 'hidden';
 }

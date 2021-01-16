@@ -69,8 +69,6 @@ if(isset($_POST['firstname'])){
 }
 
 
-
-
 $PAGE['title']= 'signin';
 $PAGE['additionalCSS']= '/public/css/signin.css';
 $PAGE['mainSectionHtml']= '../view/signin_view.php';
