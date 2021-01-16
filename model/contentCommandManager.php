@@ -84,8 +84,47 @@ class ContentCommandManager extends Manager{
         }
     }
 
+    public function updateItemQuantity($commandId, $itemId, $quantity) {
+
+        $stmt = $this->_pdo->prepare(
+            "UPDATE content_command 
+            SET quantity= :quantity
+            WHERE id_command = :commandId
+            AND id_item = :itemId"
+        );
+
+        $stmt->bindValue(':commandId', $commandId);
+        $stmt->bindValue(':itemId', $itemId);
+        $stmt->bindValue(':quantity', $quantity);
+    
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function removeItem($commandId, $itemId) {
+
+        $stmt = $this->_pdo->prepare(
+            "DELETE FROM content_command 
+            WHERE id_command = :commandId
+            AND id_item = :itemId"
+        );
+
+        $stmt->bindValue(':commandId', $commandId);
+        $stmt->bindValue(':itemId', $itemId);
+    
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
     public function getPrice($contentCart) {
-        
         $price = 0;
 
         foreach($contentCart as $item) {
@@ -96,5 +135,6 @@ class ContentCommandManager extends Manager{
         }
         return $price;
     }
+
 
 }
