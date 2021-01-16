@@ -17,6 +17,6 @@ if(isset($_POST['email'], $_POST['password'])){
 
 }
 $PAGE['title']= 'Log In';
-//$PAGE['additionalCSS']= '/public/css/lognin.css';
+$PAGE['additionalCSS']= '/public/css/login.css';
 $PAGE['mainSectionHtml']= '../view/login_view.php';
 include '../view/view.php';

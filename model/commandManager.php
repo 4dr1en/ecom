@@ -5,7 +5,8 @@ class CommandManager extends Manager{
     public function getOrdersByUserId($clientId) {
         $stmt = $this->_pdo->prepare(
             "SELECT * FROM command
-            WHERE id_client = :id_client"
+            WHERE id_client = :id_client
+            AND paid = 1"
         );
 
         $stmt->bindValue(':id_client', $clientId);
@@ -53,6 +54,6 @@ class CommandManager extends Manager{
             $idCart= $stmt->fetch();
         }
 
-        return $idCart;  
+        return $idCart['id'];  
     }
 }

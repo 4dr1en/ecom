@@ -3,5 +3,5 @@ RewriteEngine on
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
 RewriteRule ^ /%1 [R=302,L,NE]
 
-RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg)$ [NC]
+RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|webp)$ [NC]
 RewriteRule ^((?!/).*)$ public/index.php [L,NC]

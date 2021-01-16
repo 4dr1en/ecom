@@ -1,19 +1,6 @@
 <?php
-include_once '../model/clientManager.php';
+
 include_once '../model/itemManager.php';
-include_once '../model/commandManager.php';
-$itemManager= new ItemManager();
-$listClients= $itemManager->getItemsByCategory('Volkswagen');
-var_dump($listClients);
-include_once '../model/itemManager.php';
-$clientManager= new ClientManager();
-$listClients= $clientManager->getAllClients();
-
-
-$orderManager= new CommandManager();
-$listOrders= $orderManager->getOrdersByUserId(5);
-print_r($listOrders);
-
 
 $items = new ItemManager();
 $listItems = $items->getAllItems();

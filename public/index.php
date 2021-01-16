@@ -7,9 +7,7 @@ $slug =  explode('?', $_SERVER['REQUEST_URI'])[0];
 
 // Router
 switch ($slug) {
-    // url
     case '/':
-        // php file (controller)
         include '../controller/home_controller.php';
         break;
     case '/signin':
@@ -26,6 +24,12 @@ switch ($slug) {
         break;
     case '/mycart':
         include '../controller/mycart_controller.php';
+        break;
+    case '/account':
+        include '../controller/account_controller.php';
+        break;
+    case '/logout':
+        include '../controller/logout_controller.php';
         break;
 
     default:

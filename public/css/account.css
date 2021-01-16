@@ -1,0 +1,54 @@
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-flow: row wrap;
+
+    height: 100%;
+}
+
+#container>div{
+    margin-top: 1%;
+}
+
+#imgProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    min-width: 200px;
+    margin-left: 20%;
+}
+
+#imgProfile>img{
+    width: 60%;
+    border-radius: 50%;
+}
+
+#userInfos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 60%;
+    max-width: 800px;
+}
+
+#userInfos>div{
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.infoTitle{
+    text-align: right;
+    font-size: 1.1rem;
+    font-weight: 900;
+}
+
+.infoContent{
+    display: flex;
+    justify-content: left;
+    font-size: 1.1rem;
+}

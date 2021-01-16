@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Article#<?= $itemById['id']?></h1>
-    <p><?= $itemById['name']?></p>
-    <p><?= $itemById['description']?></p>
-</body>
-</html>
+<main>
+    <?php
+        if(isset($msgCart)){
+            print('<p>'.$msgCart.'</p>');
+        }
+    ?>
+    <h2>Article#<?= $item['id']?></h2>
+    <p><?= $item['name']?></p>
+    <p><?= $item['description']?></p>
+    <a href="/article?action=addToCart&idProduct=<?=$item['id']?>">add to cart</a>
+</main>
+
