@@ -25,6 +25,9 @@ switch ($slug) {
     case '/mycart':
         include '../controller/mycart_controller.php';
         break;
+    case '/mypaymentmethod':
+        include '../controller/mypaymentmethod_controller.php';
+        break;
     case '/account':
         include '../controller/account_controller.php';
         break;
