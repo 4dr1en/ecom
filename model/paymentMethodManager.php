@@ -18,4 +18,38 @@ class PaymentMethodManager extends Manager{
             throw $e;
         }
     }
+
+    public function getPaymentMethodbyCardbyUserId(){
+        $stmt = $this->_pdo->prepare(
+            "SELECT * FROM payment_method
+            WHERE id_client = :userId AND method = 'creditCard'"
+        );
+
+        $stmt->bindValue(':userId', $_SESSION['user']['id']);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function getPaymentMethodbyPaypalbyUserId(){
+        $stmt = $this->_pdo->prepare(
+            "SELECT * FROM payment_method
+            WHERE id_client = :userId AND method = 'paypal'"
+        );
+
+        $stmt->bindValue(':userId', $_SESSION['user']['id']);
+    
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
 }
