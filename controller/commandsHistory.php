@@ -10,7 +10,7 @@ if(isset($_SESSION['user'])){
         isset($_GET['command']) &&
         $commandManager->doesThisUserOwnThisCommand($_SESSION['user']['id'], $_GET['command'])
     ){
-        $item= $commandItemSnapshotManager->getItemsByIdCommand($_GET['command']);
+        $items= $commandItemSnapshotManager->getItemsByIdCommand($_GET['command']);
     }
 
 
@@ -21,7 +21,7 @@ if(isset($_SESSION['user'])){
     $commands= $commandManager->getOrdersByUserId($_SESSION['user']['id']);
 
     $PAGE['title']= 'Commands History';
-    //$PAGE['additionalCSS']= '/public/css/?.css';
+    $PAGE['additionalCSS']= '/public/css/commandsHistory.css';
     $PAGE['mainSectionHtml']= '../view/commandsHistory_view.php';
     include '../view/view.php';
 } else{

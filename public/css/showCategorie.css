@@ -7,16 +7,7 @@ h2{
     text-align: center;
 }
 
-#container{
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-}
-
-#categories{
-    padding: 40px;
-}
-
-#products{
+#pageContent{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

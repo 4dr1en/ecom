@@ -1,8 +1,8 @@
 <main>
-    <h2>Ours products</h2>
+    
     <div id="container">
-        <div id="categories">
-            <h3>categories</h3>
+        <div id="sidebar">
+            <h2>categories</h2>
             <nav>
                 <ul>
                     <?php foreach($categories as $category):?>
@@ -16,7 +16,8 @@
             </nav>
         </div>
         
-        <div id="products">
+        <div id="pageContent">
+            <h2>Ours products</h2>
             <?php if(isset($_GET['catid'])) {
                 foreach($items as $item) { ?>
                     <div class="card">

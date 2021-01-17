@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding-top: 120px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /*header*/
@@ -57,6 +58,39 @@ header.deployed {
 #h_left h1{
     margin-left: 50px;
 }
+
+/*page*/
+
+#container{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+}
+
+#sidebar{
+    padding: 40px;
+}
+
+#pageContent{
+
+}
+
+/*footer*/
+
+footer{
+    background-color: #232323;
+    color:rgb(206, 204, 204);
+}
+footer a{
+    color:rgb(206, 204, 204);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
 
 /*divers*/
 
