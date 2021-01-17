@@ -54,3 +54,24 @@ td{
     align-items: center;
     margin: 0;
 }
+
+#saveCart{
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.4s;
+    position: absolute;
+    right: 0;
+    top: 200px;
+}
+
+#saveCart>input{
+    padding: 20px 30px;
+    font-size: 2rem;
+    background: white;
+    border: 2px solid black;
+}
+
+#saveCart.hidden{
+    display: none;
+    opacity: 0;
+}

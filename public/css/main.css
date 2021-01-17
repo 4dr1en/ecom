@@ -57,3 +57,9 @@ header.deployed {
 #h_left h1{
     margin-left: 50px;
 }
+
+/*divers*/
+
+button, input[type='button'], input[type='submit']{
+    cursor: pointer;
+}
