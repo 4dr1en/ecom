@@ -43,18 +43,39 @@
         }
         ?>
             </table>
-            <input type="submit" name="buy" value="Buy">
-
-            <div id="saveCart" class="hidden">
-                <input type="submit" name="saveCart" value="Save Cart">
-            </div>
-        </form>
 
         <div id="commandInfo">
-            <p>Ht = $<span id="priceHT"><?= $ht ?></span></p>
-            <p>Tva = $<span id="totalTVA"><?= $tva ?></span></p>
-            <p>Total = $<span id="priceTotal"><?= $total ?></span></p>
+            <div id="prixInfo">
+                <p>Ht = $<span id="priceHT"><?= $ht ?></span></p>
+                <p>Tva = $<span id="totalTVA"><?= $tva ?></span></p>
+                <p>Total = $<span id="priceTotal"><?= $total ?></span></p>
+            </div>
+            <div id="modePayment">
+                <h3>Please choose your method of payment</h3>
+                <select name="paymentMethod" id="paymentMethod">
+                    <?php
+                    foreach ($paymentsMethod as $paymentMethod) {
+                    ?>
+                    <option value="<?= $paymentMethod['id'] ?>">
+                    <?php
+                        if($paymentMethod['method'] == 'creditCard'){
+                            $values= explode("&", $paymentMethod['value']);
+                            print('Credit Card | '.$values[0].' | '.strtoupper($values[2]));
+                        }else print('paypal | '.$paymentMethod['value']);
+                    ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
         </div>
+        <input type="submit" name="buy" value="Buy">
+        <div id="saveCart" class="hidden">
+            <input type="submit" name="saveCart" value="Save Cart">
+        </div>
+    </form>
+        
         
     <?php
     }else{

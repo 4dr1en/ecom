@@ -55,7 +55,7 @@ class PaymentMethodManager extends Manager{
 
     public function doesMyPaymentMethodExist($string) {
         $stmt = $this->_pdo->prepare(
-            "SELECT * FROM payment_method
+            "SELECT count(*) as nb FROM payment_method
             WHERE value = :string"
         );
 
@@ -63,7 +63,8 @@ class PaymentMethodManager extends Manager{
     
         try {
             $stmt->execute();
-            return $stmt->fetchAll();
+            $r= (int)$stmt->fetch()['nb'];
+            return $r;
         } catch (Exception $e) {
             $this->_pdo->rollBack();
             throw $e;
@@ -80,6 +81,24 @@ class PaymentMethodManager extends Manager{
         $stmt->bindValue(':id', $id);
         try {
             return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function getPaymentMethodsByUserId($userId){
+        $stmt = $this->_pdo->prepare(
+            "SELECT * FROM payment_method
+            WHERE id_client = :userId"
+        );
+
+        $stmt->bindValue(':userId', $userId);
+    
+        try {
+            $stmt->execute();
+            $resultsQuery= $stmt->fetchAll();
+            return $resultsQuery;
         } catch (Exception $e) {
             $this->_pdo->rollBack();
             throw $e;

@@ -18,11 +18,11 @@ if(isset($_POST['paymentMethod'])) {
         $paymentMethod['value'] = $_POST['value'];
     }
     $paymentMethod['id_client'] = $_SESSION['user']['id'];
-    if($paymentMethodManager->doesMyPaymentMethodExist($paymentMethod['value'])) {
+    if(!$paymentMethodManager->doesMyPaymentMethodExist($paymentMethod['value'])) {
         $paymentMethodManager->addPaymentMethod($paymentMethod);
         echo'<h3>Your payment method has been registered</h3>';
     }
-    echo'<h3>This payment method is already registed</h3>';
+    else echo'<h3>This payment method is already registed</h3>';
 
 }
 

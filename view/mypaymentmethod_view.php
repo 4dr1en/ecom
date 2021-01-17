@@ -29,7 +29,7 @@
     <tr>
       <td>&nbsp;</td>
       <td><?= $paymentMethodByPaypal['value']?></td>
-      <td><a href="/mypaymentmethod?payment=remove&paymentMethodId=<?= $paymentMethodByCard['id']?>">Remove</a></td>
+      <td><a href="/mypaymentmethod?payment=remove&paymentMethodId=<?= $paymentMethodByPaypal['id']?>">Remove</a></td>
     </tr>
     <?php }?>
 </table>
@@ -87,3 +87,4 @@
         <button type="submit">Register</button>
 </form>
 <?php }} ?>
+</main>

@@ -2,6 +2,8 @@
 
 include_once '../model/commandManager.php';
 include_once '../model/contentCommandManager.php';
+include_once '../model/paymentMethodManager.php';
+
 
 if(isset($_SESSION['user'])){
     $commandManager= new CommandManager();
@@ -22,7 +24,15 @@ if(isset($_SESSION['user'])){
     if(isset($_GET['action'], $_GET['idItem']) && $_GET['action'] == 'removeItem'){
         $contentCommandManager->removeItem($cartId, $_GET['idItem']);
     }
+
+    //command
+    if(isset($_POST['buy'])){
+        var_dump($_POST);
+        echo 'not yet';
+    }
     
+
+    //content cart
     
     $contentCart= $contentCommandManager->getContentByCommandId($cartId);
     if(count($contentCart)){
@@ -30,6 +40,11 @@ if(isset($_SESSION['user'])){
         $tva= round((1/6) * $total, 2);
         $ht= $total - $tva; 
     }
+
+    //payment method
+    $paymentMethodManager= new PaymentMethodManager();
+    $paymentsMethod = $paymentMethodManager->getPaymentMethodsByUserId($_SESSION['user']['id']);
+
 }
 
 $PAGE['title']= 'My Cart';
