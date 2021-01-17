@@ -3,7 +3,7 @@
 class ItemManager extends Manager{
 
     public function getAllItems() {
-        $sql = "SELECT * FROM item ORDER BY price DESC LIMIT 12";
+        $sql = "SELECT * FROM item ORDER BY price DESC LIMIT 20";
         $stmt = $this->_pdo->query($sql);
 
         try {

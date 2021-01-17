@@ -26,7 +26,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'addToCart'){
         else{
             $contentCommandManager->setItemToCart($cartId, $idItem);
         }
-        $msgCart= 'This product has been added to your cart';
+        $msgCart= 'This product has been added to your cart, <a href="/mycart">See my cart</a>';
     }
 
 }

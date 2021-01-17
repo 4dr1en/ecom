@@ -1,11 +1,20 @@
 <?php
 include_once '../model/itemManager.php';
+include_once '../model/categoryManager.php';
 
-$im = new ItemManager();
-$categories = $im->getAllCategory();
+$itemManager= new ItemManager();
+$categories = $itemManager->getAllCategory();
+
+$categoriesManager= new CategoryManager();
+$currentCategoryName = "All Categories";
+
 if(isset($_GET['catid'])) {
-    $id = (int)$_GET['catid'];
-    $items = $im->getItemsByCategory($id);
+    $idCategory = (int)$_GET['catid'];
+    $currentCategoryName = $categoriesManager->getCategoryName($idCategory);
+    $items = $itemManager->getItemsByCategory($idCategory);
+}
+else{
+    $items = $itemManager->getAllItems();
 }
 $PAGE['additionalCSS']= '/public/css/showCategorie.css';
 $PAGE['mainSectionHtml']= '../view/show_categorie_view.php';

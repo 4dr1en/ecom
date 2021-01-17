@@ -1,8 +1,8 @@
 <main>
-    
+
     <div id="container">
         <div id="sidebar">
-            <h2>categories</h2>
+            <h2>Categories</h2>
             <nav>
                 <ul>
                     <?php foreach($categories as $category):?>
@@ -17,21 +17,29 @@
         </div>
         
         <div id="pageContent">
-            <h2>Ours products</h2>
-            <?php if(isset($_GET['catid'])) {
+            <h2><?=$currentCategoryName?></h2>
+            <div>
+                <?php
                 foreach($items as $item) { ?>
                     <div class="card">
-                        <img src="https://source.unsplash.com/200x80/?cars" alt="">
-                        <h3 class="card-title"><?= htmlentities($item['name']) ?></h3>
-                        <p><?= nl2br(htmlentities($item['description'])) ?></p>
-                        <p>
-                            <a href="/article<?= '?idProduct='.$item['id']?>" class="btn">Voir plus</a>
-                        </p>
+                        <img src="<?=$item['image']?>" alt="product">
+                        <div>
+                            <h3 class="card-title"><?= htmlentities($item['name']) ?></h3>
+                            <p><?php
+                            if(strlen($item['description']) > 200){
+                                print(nl2br(htmlentities(substr($item['description'], 0, 200))).'...');
+                            }else{
+                                print(nl2br(htmlentities($item['description'])));
+                            }
+                            ?></p>
+                            <p>
+                                <a href="/article<?= '?idProduct='.$item['id']?>" class="btn">more</a>
+                            </p>
+                        </div>
                     </div>
-                <?php }
-            }?>
+                <?php }?>
+            </div>
         </div>
     </div>
-    
 </main>
 

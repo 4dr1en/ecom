@@ -31,5 +31,6 @@ th:not(:last-child){
 
 td{
     padding: 10px 40px;
-    min-width: 200px;
+    width: 10%;
+    min-width: 100px;
 }

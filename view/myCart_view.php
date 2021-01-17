@@ -52,7 +52,7 @@
             </div>
             <div id="modePayment">
                 <?php if(count($paymentsMethod)){ ?>
-                <h3>Please choose your method of payment</h3>
+                <h3>Please choose your payment method</h3>
                 <select name="paymentMethod" id="paymentMethod">
                     <?php
                     foreach ($paymentsMethod as $paymentMethod) {
