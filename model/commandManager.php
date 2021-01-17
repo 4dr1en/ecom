@@ -59,7 +59,7 @@ class CommandManager extends Manager{
 
     public function setPaid($idCart) {
         $stmt = $this->_pdo->prepare(
-            "UPDATE command SET paid = 1
+            "UPDATE command SET paid = 1, dateCommand = CURRENT_TIMESTAMP()
             WHERE id= :id_card"
         );
 
@@ -67,6 +67,26 @@ class CommandManager extends Manager{
     
         try {
             return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function doesThisUserOwnThisCommand($idClient, $idCommand){
+        $stmt = $this->_pdo->prepare(
+            "SELECT count(*) as nb FROM command
+            WHERE id_client = :idClient
+            AND id = :idCommand"
+        );
+
+        $stmt->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+        $stmt->bindValue(':idCommand', $idCommand, PDO::PARAM_INT);
+
+        try {
+            $stmt->execute();
+            $r= (int)$stmt->fetch()['nb'];
+            return $r;
         } catch (Exception $e) {
             $this->_pdo->rollBack();
             throw $e;

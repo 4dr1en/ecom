@@ -26,6 +26,23 @@ class CommandItemSnapshotManager extends Manager{
             $this->saveAnItem($idCommand, $item['name'], $item['price'], $idCategory, $item['quantity']);
         }
     }
-}
 
-?>
+    public function getItemsByIdCommand($idCommand){
+        $stmt = $this->_pdo->prepare(
+            "SELECT * FROM command_item_smapshot
+            WHERE id_command = :idCommand"
+        );
+
+        $stmt->bindValue(':idCommand', $idCommand);
+
+        try {
+            $stmt->execute();
+            return $stmt->fetchAll();
+
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+    
+}

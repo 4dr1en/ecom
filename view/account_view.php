@@ -26,7 +26,7 @@
     <div>
         <div>
             <a href="/mycart">My cart</a>
-            <a href="/mycommands">My commands</a>
+            <a href="/commandsHistory">My commands</a>
             <a href="/mypaymentmethod">My Payment Method</a>
         </div>
         

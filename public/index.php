@@ -34,6 +34,9 @@ switch ($slug) {
     case '/logout':
         include '../controller/logout_controller.php';
         break;
+    case '/commandsHistory':
+        include '../controller/commandsHistory.php';
+        break;
 
     default:
         include "../controller/404_controller.php";
