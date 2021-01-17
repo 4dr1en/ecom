@@ -34,12 +34,12 @@
 </table>
 <?php if(isset($_GET['payment'])) { if($_GET['payment'] == 'add') {?>
 <form action="/mypaymentmethod" method="post">
-  <input type="radio" id="creditCard" name="paymentMethod" value="creditCard">
-  <label for="creditCard"><img src="../public/img/creditcard.png" alt="Credit Card"></label>
-  <input type="radio" id="paypal" name="paymentMethod" value="paypal">
-  <label for="paypal"><img src="../public/img/paypal.png" alt="Paypal"></label>
+  <input type="radio" id="ccd" onclick="displayCreditCard()" name="paymentMethod" value="creditCard">
+  <label for="ccd"><img src="../public/img/creditcard.png" alt="Credit Card"></label>
+  <input type="radio" id="ppl" onclick="displayPaypal()" name="paymentMethod" value="paypal">
+  <label for="ppl"><img src="../public/img/paypal.png" alt="Paypal"></label>
   
-  <div class="creditcard">
+  <div id="creditcard">
       <label for="cardNumber">Card Number: </label>
       <input type="text" id="cardNumber" name='cardNumber'
             pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
@@ -80,7 +80,7 @@
         <input type="text" id="cardName" name="cardName">
   </div>
 
-  <div>
+  <div id="paypal">
       <input type="text" placeholder="Paypal Link" name='value'>
   </div>
         <button type="submit">Register</button>

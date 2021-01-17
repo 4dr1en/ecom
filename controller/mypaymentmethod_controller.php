@@ -40,5 +40,8 @@ foreach($paymentsMethodByCard as $key => $paymentMethodByCard) {
 if(isset($_GET['paymentMethodId']) && $_GET['payment'] == 'remove')
     $paymentMethodManager->removeMyPaymentMethod($_GET['paymentMethodId']);
 
+
+$PAGE['additionalJS']='/public/js/myPaymentMethod.js';
 $PAGE['mainSectionHtml']= '../view/myPaymentMethod_view.php';
+$PAGE['additionalCSS']='/public/css/paymentMethod.css';
 include '../view/view.php';
