@@ -56,4 +56,20 @@ class CommandManager extends Manager{
 
         return $idCart['id'];  
     }
+
+    public function setPaid($idCart) {
+        $stmt = $this->_pdo->prepare(
+            "UPDATE command SET paid = 1
+            WHERE id= :id_card"
+        );
+
+        $stmt->bindValue(':id_card', $idCart);
+    
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
 }

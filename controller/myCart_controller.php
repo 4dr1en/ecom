@@ -3,11 +3,15 @@
 include_once '../model/commandManager.php';
 include_once '../model/contentCommandManager.php';
 include_once '../model/paymentMethodManager.php';
+include_once '../model/commandItemSnapshotManager.php';
+include_once '../model/paymentManager.php';
 
 
 if(isset($_SESSION['user'])){
     $commandManager= new CommandManager();
     $contentCommandManager= new ContentCommandManager();
+    $paymentMethodManager= new PaymentMethodManager();
+
     $cartId= $commandManager->getCartId($_SESSION['user']['id']);
     
     //cart modification
@@ -26,9 +30,39 @@ if(isset($_SESSION['user'])){
     }
 
     //command
-    if(isset($_POST['buy'])){
+    if(
+        isset($_POST['buy']) &&
+        $paymentMethodManager->doesThisClientOwnThisPaymentMethod($_SESSION['user']['id'], $_POST['paymentMethod'])
+    ){
         var_dump($_POST);
-        echo 'not yet';
+        //update cart
+        foreach ($_POST as $key => $value) { //get couple: id product->quantity
+            if(preg_match('/^Quantity/', $key) && $value <= 9 && $value > 0){
+                $idProduct= explode('-', $key)[1];
+                $contentCommandManager->updateItemQuantity($cartId, $idProduct, $value); //save the quantity
+            }
+        }
+        //get cart udapted
+        $contentCart= $contentCommandManager->getContentByCommandId($cartId);
+
+        //save the ItemSnapshot
+        $commandItemSnapshotManager = new CommandItemSnapshotManager();
+        $commandItemSnapshotManager->saveItems($cartId ,$contentCart);
+
+        //put the cart in command
+        $commandManager->setPaid($cartId);
+
+        //save the payment
+        $total= $contentCommandManager->getPrice($contentCart);
+        $tva= round((1/6) * $total, 2);
+        $ht= $total - $tva; 
+
+        $paymentManager= new PaymentManager();
+        $paymentManager->setNewPayment($ht, $tva, $cartId, $_POST['paymentMethod']);
+
+        //redirect to command history
+        header('Location: /');      
+        exit();
     }
     
 
@@ -42,7 +76,6 @@ if(isset($_SESSION['user'])){
     }
 
     //payment method
-    $paymentMethodManager= new PaymentMethodManager();
     $paymentsMethod = $paymentMethodManager->getPaymentMethodsByUserId($_SESSION['user']['id']);
 
 }

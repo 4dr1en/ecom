@@ -105,4 +105,24 @@ class PaymentMethodManager extends Manager{
         }
     }
 
+    public function doesThisClientOwnThisPaymentMethod($idClient, $idPaymentMethod) {
+        $stmt = $this->_pdo->prepare(
+            "SELECT count(*) as nb FROM payment_method
+            WHERE id_client = :idClient
+            AND id = :idPaymentMethod"
+        );
+
+        $stmt->bindValue(':idClient', $idClient, PDO::PARAM_INT);
+        $stmt->bindValue(':idPaymentMethod', $idPaymentMethod, PDO::PARAM_INT);
+    
+        try {
+            $stmt->execute();
+            $r= (int)$stmt->fetch()['nb'];
+            return $r;
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
 }

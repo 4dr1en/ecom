@@ -51,6 +51,7 @@
                 <p>Total = $<span id="priceTotal"><?= $total ?></span></p>
             </div>
             <div id="modePayment">
+                <?php if(count($paymentsMethod)){ ?>
                 <h3>Please choose your method of payment</h3>
                 <select name="paymentMethod" id="paymentMethod">
                     <?php
@@ -68,6 +69,13 @@
                     }
                     ?>
                 </select>
+                <?php 
+                }else{                
+                ?>
+                    <p>You don't have any payment method yet. <a href="/mypaymentmethod">Add one.</a></p>
+                <?php 
+                }               
+                ?>
             </div>
         </div>
         <input type="submit" name="buy" value="Buy">
