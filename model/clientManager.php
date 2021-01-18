@@ -59,4 +59,73 @@ class ClientManager extends Manager{
             throw $e;
         }
     }
+
+    public function editFirstname(string $edit) {
+        
+        $stmt = $this->_pdo->prepare(
+           "UPDATE client
+            SET first_name = :edit
+            WHERE id = :id;
+        ");
+
+        $stmt->bindValue(':edit', $edit);
+        $stmt->bindValue(':id', $_SESSION['user']['id']);
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+    
+    public function editLastName($edit)
+    {
+            $stmt = $this->_pdo->prepare(
+                "UPDATE client
+                SET last_name = :edit
+                WHERE id = :id;
+            ");
+            $stmt->bindValue(':edit', $edit);
+            $stmt->bindValue(':id', $_SESSION['user']['id']);
+            try {
+                return $stmt->execute();
+            } catch (Exception $e) {
+                $this->_pdo->rollBack();
+                throw $e;
+            }
+    }
+
+    public function editEmail($edit)
+    {
+            $stmt = $this->_pdo->prepare(
+                "UPDATE client
+                SET email = :edit
+                WHERE id = :id;
+            ");
+            $stmt->bindValue(':edit', $edit);
+            $stmt->bindValue(':id', $_SESSION['user']['id']);
+            try {
+                return $stmt->execute();
+            } catch (Exception $e) {
+                $this->_pdo->rollBack();
+                throw $e;
+            }
+    }
+
+    public function editPhone($edit)
+    {
+            $stmt = $this->_pdo->prepare(
+                "UPDATE client
+                SET phone = :edit
+                WHERE id = :id;
+            ");
+            $stmt->bindValue(':edit', $edit);
+            $stmt->bindValue(':id', $_SESSION['user']['id']);
+            try {
+                return $stmt->execute();
+            } catch (Exception $e) {
+                $this->_pdo->rollBack();
+                throw $e;
+            }
+    }
 }
