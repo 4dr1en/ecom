@@ -5,6 +5,13 @@
             <h1>Home</h1>
         </a>
     </div>
+    <div id="h_center">
+        <form action="/categorie" method="GET">
+            <input type="hidden" name="action" value="search">
+            <input type="search" name="search" id="search">
+            <input type="submit" value="🔍">
+        </form>
+    </div>
     <div id="h_right">
         <nav>
             <ul>

@@ -13,6 +13,15 @@ if(isset($_GET['catid'])) {
     $currentCategoryName = $categoriesManager->getCategoryName($idCategory);
     $items = $itemManager->getItemsByCategory($idCategory);
 }
+else if(
+    isset($_GET['action'], $_GET['search']) && 
+    $_GET['action'] == 'search' && 
+    trim($_GET['search']) != ''
+){
+    $search= trim($_GET['search']);
+    $currentCategoryName= 'Custom search: '.$search;
+    $items = $itemManager->getItemsByKeyword($search);    
+}
 else{
     $items = $itemManager->getAllItems();
 }

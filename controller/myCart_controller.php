@@ -32,6 +32,7 @@ if(isset($_SESSION['user'])){
     //command
     if(
         isset($_POST['buy']) &&
+        isset($_POST['paymentMethod']) &&
         $paymentMethodManager->doesThisClientOwnThisPaymentMethod($_SESSION['user']['id'], $_POST['paymentMethod'])
     ){
         var_dump($_POST);
@@ -61,7 +62,7 @@ if(isset($_SESSION['user'])){
         $paymentManager->setNewPayment($ht, $tva, $cartId, $_POST['paymentMethod']);
 
         //redirect to command history
-        header('Location: /');      
+        header('Location: /commandsHistory?command='.$cartId.'&newCommand=1');      
         exit();
     }
     
