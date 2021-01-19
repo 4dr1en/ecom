@@ -11,13 +11,12 @@ $item = $itemManager->getItemById($idItem);
 
 if(isset($_GET['action']) && $_GET['action'] == 'addToCart'){
 
-    $errorMsgs= [];
     if(!isset($_SESSION['user'])){
         $msgCart= 'You must be connected to add a product into you cart.';
     }
     else{
         $commandManager= new CommandManager();
-        $cartId= $commandManager->getCartId($_SESSION['user']);
+        $cartId= $commandManager->getCartId($_SESSION['user']['id']);
 
         $contentCommandManager= new ContentCommandManager();
         if($contentCommandManager->itemExistInThisCart($cartId, $idItem)){

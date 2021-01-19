@@ -91,6 +91,7 @@ header.deployed {
     border: none;
     border-left: 1px solid rgb(204, 204, 204);
     border-radius:  0 5px 5px 0;
+    background-color: white;
 }
 
 #h_center input[type="submit"]:hover{
