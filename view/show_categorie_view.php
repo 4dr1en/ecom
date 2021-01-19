@@ -7,9 +7,9 @@
                 <ul>
                     <?php foreach($categories as $category):?>
                     <li>
-                        </p>
-                            <a href="/categorie?catid=<?=$category['id']?>" class="btn"><?= htmlentities($category['name']) ?></a>
-                        <p>
+                        <a href="/categorie?catid=<?=$category['id']?>" class="btn">
+                            <p><?= htmlentities($category['name']) ?></p>
+                        </a>
                     </li>
                     <?php endforeach ?>
                 </ul>
