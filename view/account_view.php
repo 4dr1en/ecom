@@ -10,7 +10,10 @@
                 </li>
                 <li>
                     <a href="/mypaymentmethod">My Payment Method</a>
-                </li>         
+                </li>
+                <li>
+                    <a href="/account?action=edit">Edit personal information</a>
+                </li>
             </ul>
         </div>
         <div id="pageContent">
@@ -36,6 +39,21 @@
                 </div> 
             </div>
         </div>
+        <?php if(isset($_GET['action']) && $_GET['action'] == 'edit') { ?>
+        <div>
+            <form action="/account" method="post">
+                <label for="editFirstname">New Firstname</label>
+                <input type="text" id="editFirstname" name="firstName">
+                <label for="editLastname">New Lastname</label>
+                <input type="text" id="editLastname" name ="lastName">
+                <label for="editEmail">New Mail</label>
+                <input type="email" id="editEmail" name ='email'>
+                <label for="editPhone">New Phone</label>
+                <input type="tel" id="editPhone" name='phone'>
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+        <?php } ?>
         
     </div>
 
