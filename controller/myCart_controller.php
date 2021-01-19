@@ -25,16 +25,17 @@ if(isset($_SESSION['user'])){
     }
 
     //delet item in cart
-    elseif(isset($_GET['action'], $_GET['idItem']) && $_GET['action'] == 'removeItem'){
+    if(isset($_GET['action'], $_GET['idItem']) && $_GET['action'] == 'removeItem'){
         $contentCommandManager->removeItem($cartId, $_GET['idItem']);
     }
 
     //command
-    elseif(
+    if(
         isset($_POST['buy']) &&
         isset($_POST['paymentMethod']) &&
         $paymentMethodManager->doesThisClientOwnThisPaymentMethod($_SESSION['user']['id'], $_POST['paymentMethod'])
     ){
+        var_dump($_POST);
         //update cart
         foreach ($_POST as $key => $value) { //get couple: id product->quantity
             if(preg_match('/^Quantity/', $key) && $value <= 9 && $value > 0){
@@ -69,7 +70,6 @@ if(isset($_SESSION['user'])){
     //content cart
     
     $contentCart= $contentCommandManager->getContentByCommandId($cartId);
-
     if(count($contentCart)){
         $total= $contentCommandManager->getPrice($contentCart);
         $tva= round((1/6) * $total, 2);

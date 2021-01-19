@@ -8,7 +8,6 @@
         else print('shop');
     ?></title>
     <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/header.css">
     <?php
         if(isset($PAGE['additionalCSS'])){
             print('<link rel="stylesheet" href="'.$PAGE['additionalCSS'].'">');

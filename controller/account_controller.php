@@ -4,7 +4,6 @@ include '../model/clientManager.php';
 if(isset($_SESSION['user'])){
     $editManager = new ClientManager();
     $pInfo =  $editManager->getPersonalinfo();
-    var_dump($pInfo);
     if(isset($_POST['firstName']) && $_POST['firstName'] != '') {
         $editManager->editFirstname($_POST['firstName']);
         $_SESSION['user']['first_name'] = $pInfo['first_name'];
@@ -24,10 +23,9 @@ if(isset($_SESSION['user'])){
 
     if(isset($_POST['currentPassword']) && password_verify($_POST['currentPassword'], $pInfo['password']))
     {
-        if($_POST['newPassword'] === $_POST['confirmPassword']) {
-            echo("trololo");
+        if($_POST['newPassword'] === $_POST['confirmPassword'] && strlen($_POST['newPassword']) >= 8) {
             $hash = password_hash($_POST['newPassword'], PASSWORD_ARGON2ID);
-            $editManager->editPassword($_POST['newPassword']);
+            $editManager->editPassword($hash);
             $return = "Your Password has been modified";
         }
         else 
