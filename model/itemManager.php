@@ -45,8 +45,7 @@ class ItemManager extends Manager{
     }
 
     public function getAllCategory() {
-        $sql = "SELECT * FROM category";
-        $stmt = $this->_pdo->prepare($sql);
+
         $stmt = $this->_pdo->prepare("SELECT * FROM category");    
         
         try {
@@ -56,5 +55,31 @@ class ItemManager extends Manager{
             $this->_pdo->rollBack();
             throw $e;
         }
+    }
+
+    public function getItemsByKeyword($keyword){
+        $stmt = $this->_pdo->prepare(
+            "SELECT * FROM item 
+             WHERE name LIKE :query"
+        );
+
+        $stmt->bindValue(':query', '%'.$keyword.'%');
+    
+        
+        $stmt->execute();
+        $result= $stmt->fetchAll();
+        if(!count($result)){
+            $stmt = $this->_pdo->prepare(
+                "SELECT * FROM item 
+                 WHERE description LIKE :query"
+            );
+    
+            $stmt->bindValue(':query', '%'.$keyword.'%');
+        
+            
+            $stmt->execute();
+            $result= $stmt->fetchAll();
+        }
+        return $result;
     }
 }
