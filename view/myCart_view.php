@@ -76,9 +76,11 @@
                 <?php 
                 }               
                 ?>
+                
             </div>
+            <input type="submit" name="buy" value="Buy now">
         </div>
-        <input type="submit" name="buy" value="Buy">
+        
         <div id="saveCart" class="hidden">
             <input type="submit" name="saveCart" value="Save Cart">
         </div>

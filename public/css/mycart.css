@@ -75,3 +75,14 @@ td{
     display: none;
     opacity: 0;
 }
+
+/*commandInfo*/
+
+#commandInfo{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20%;
+    padding: 20px;
+    
+    background-color: white;
+}

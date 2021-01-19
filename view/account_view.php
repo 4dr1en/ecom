@@ -1,24 +1,27 @@
 <main>
     <div id="container">
         <div id="sidebar">
-            <ul>
-                <li>
-                    <a href="/mycart">My cart</a>
-                </li>
-                <li>
-                    <a href="/commandsHistory">My commands</a>
-                </li>
-                <li>
-                    <a href="/mypaymentmethod">My Payment Method</a>
-                </li>
-                <li>
-                    <a href="/account?action=edit">Edit personal information</a>
-                </li>
-                <li>
-                    <a href="/account?action=editPassword">Edit Password</a>
-                </li>
-                
-            </ul>
+            <h2>ACCOUNT</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/mycart"><p>My cart</p></a>
+                    </li>
+                    <li>
+                        <a href="/commandsHistory"><p>My commands</p></a>
+                    </li>
+                    <li>
+                        <a href="/mypaymentmethod"><p>My Payment Method</p></a>
+                    </li>
+                    <li>
+                        <a href="/account?action=edit"><p>Edit personal information</p></a>
+                    </li>
+                    <li>
+                        <a href="/account?action=editPassword"><p>Edit Password</p></a>
+                    </li>
+                </ul>
+            </nav>
+            
         </div>
         <div id="pageContent">
             <div id="imgProfile">

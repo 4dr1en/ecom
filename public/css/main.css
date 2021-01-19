@@ -5,7 +5,7 @@ body{
     padding-bottom: 120px;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #eeeeee;
     position: relative;
 }
 
@@ -20,16 +20,32 @@ body{
     padding-top: 50px;
 }
 
+#pageContent h2{
+    font-size: 3rem;
+    color: rgb(66, 66, 66);
+}
+
+
 /*sidebar*/
 
 #sidebar{
     background-color: white;
     border-right: 1px solid black;
+    height: 100%;
+}
+
+#sidebar h2{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    color: rgb(66, 66, 66);
 }
 
 #sidebar ul{
     padding: 0;
     margin: 60px 0 0 0;
+    border-top: 1px solid black;
 }
 
 #sidebar li{
@@ -39,15 +55,17 @@ body{
     height: 80px;
     width: 100%;
     border-bottom: 1px solid black;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 15%, rgb(255, 255, 255) 85%, rgb(255, 255, 255) 100%);
+    transition: background-image 5s ease;
 }
 
 #sidebar li:hover{
     transition: all 0.7s;
-    background-color: #131921;
+    background: rgb(19,25,33);
+    background: linear-gradient(0deg, rgba(19,25,33,1) 0%, rgba(26,36,48,1) 15%, rgba(26,36,48,1) 85%, rgba(19,25,33,1) 100%);
     color: white;
 }
 #sidebar li:hover p{
-    transition: all 0.5s;
     color: white;
 }
 
@@ -65,6 +83,8 @@ body{
 #sidebar a>p{
     display: inline;
     margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 

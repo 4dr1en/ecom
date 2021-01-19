@@ -5,25 +5,40 @@ h2{
     text-align: center;
 }
 
-#pageContent>div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .card{
-    width: 360px;
-    margin: 10px;
+    display: flex;
+    height: 300px;
+    margin: 20px 5%;
+    padding: 15px;
 
-    margin-top: 50px;
-    border: 2px solid black;
+    border-radius: 20px;
     background-color: white;
 }
 
-.card>img{
-    width: 100%;
+.cardImage{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+} 
+
+.cardImage>img{
+    display: block;
+    height: 100%;
+    max-width: 100%;
 }
 
-.card>h3{
-    text-align: center;
+.cardContent{
+    width: 80%;
+    padding: 30px 5%;
+}
+
+.card-title{
+    padding-left: 40px;
+    font-size: 1.4rem;
+}
+
+.card-description{
+    max-width: 800px;
 }

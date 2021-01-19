@@ -1,12 +1,14 @@
 <main>
     <div id="container">
         <div id="sidebar">
-            <h2>history</h2>
+            <h2>HISTORY</h2>
             <nav>
                 <ul>
                     <?php foreach($commands as $command):?>
                     <li>
-                        <a href="/commandsHistory?command=<?=$command['id']?>" class="btn"><?=$command['dateCommand']?></a>
+                        <a href="/commandsHistory?command=<?=$command['id']?>" class="btn">
+                            <p><?=$command['dateCommand']?></p>
+                        </a>
                     </li>
                     <?php endforeach ?>
                 </ul>
