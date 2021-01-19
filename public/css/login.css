@@ -12,25 +12,25 @@ main h2{
     font-size: 2rem;
 }
 
-form{
+#formLogin{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-form>div{
+#formLogin>div{
     display: grid;
     grid-gap: 20px 65px;
     grid-template-columns: 1fr 220px;
 }
 
-form label{
+#formLogin label{
     text-align: right;
     justify-self: flex-end;
     font-size: 1.2rem;
 }
 
-form input[type="submit"]{
+#formLogin input[type="submit"]{
     margin-top: 20px;
     padding: 5px;
     width: 30%;
@@ -43,6 +43,6 @@ form input[type="submit"]{
     color: black;
 }
 
-form input[type="submit"]:hover{
+#formLogin input[type="submit"]:hover{
     border: 1px solid black;
 }

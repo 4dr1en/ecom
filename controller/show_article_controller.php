@@ -17,7 +17,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'addToCart'){
     }
     else{
         $commandManager= new CommandManager();
-        $cartId= $commandManager->getCartId($_SESSION['user']);
+        $cartId= $commandManager->getCartId($_SESSION['user']['id']);
 
         $contentCommandManager= new ContentCommandManager();
         if($contentCommandManager->itemExistInThisCart($cartId, $idItem)){

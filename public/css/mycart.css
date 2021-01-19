@@ -86,3 +86,37 @@ td{
     
     background-color: white;
 }
+
+#buyInput{
+    margin-top: 20px;
+    padding: 25px 35px;
+    height: auto;
+    align-self: center;
+
+    font-size: 1.1rem;
+    background-color: #1e2d41;
+    border: 1px solid rgb(124, 124, 124);
+    color: white;
+    border-radius: 6px;
+}
+
+#buyInput:hover{
+    border: 1px solid black;
+    box-shadow: rgb(131, 131, 131) 0 0 7px;
+    border-radius: 8px;
+}
+
+#prixInfo>p{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.priceTitle{
+    font-weight: 700;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.priceTotal{
+    font-style : italic;
+}

@@ -25,12 +25,12 @@ if(isset($_SESSION['user'])){
     }
 
     //delet item in cart
-    if(isset($_GET['action'], $_GET['idItem']) && $_GET['action'] == 'removeItem'){
+    else if(isset($_GET['action'], $_GET['idItem']) && $_GET['action'] == 'removeItem'){
         $contentCommandManager->removeItem($cartId, $_GET['idItem']);
     }
 
     //command
-    if(
+    else if(
         isset($_POST['buy']) &&
         isset($_POST['paymentMethod']) &&
         $paymentMethodManager->doesThisClientOwnThisPaymentMethod($_SESSION['user']['id'], $_POST['paymentMethod'])

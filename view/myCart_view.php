@@ -4,11 +4,11 @@
         <form action="/mycart" method="post">
             <table>
                 <tr>
-                    <th>Care</th>
-                    <th>description</th>
-                    <th>price</th>
-                    <th>quantity</th>
-                    <th>action</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Remove</th>
                 </tr>
         <?php
         $line= 0;
@@ -46,13 +46,22 @@
 
         <div id="commandInfo">
             <div id="prixInfo">
-                <p>Ht = $<span id="priceHT"><?= $ht ?></span></p>
-                <p>Tva = $<span id="totalTVA"><?= $tva ?></span></p>
-                <p>Total = $<span id="priceTotal"><?= $total ?></span></p>
+                <p>
+                    <span class="priceTitle">Ht&#8239: </span>
+                    <span id="priceHT">$&#8239<span><?= $ht ?></span></span>
+                </p>
+                <p>
+                    <span class="priceTitle">Tva&#8239: </span>
+                    <span id="totalTVA"> $&#8239<span><?= $tva ?></span></span>
+                </p>
+                <p>
+                    <span class="priceTitle">Total&#8239: </span>
+                    <span id="priceTotal">$&#8239<span><?= $total ?></span></span>
+                </p>
             </div>
             <div id="modePayment">
                 <?php if(count($paymentsMethod)){ ?>
-                <h3>Please choose your payment method</h3>
+                <h3>Please choose your payment method&#8239:</h3>
                 <select name="paymentMethod" id="paymentMethod">
                     <?php
                     foreach ($paymentsMethod as $paymentMethod) {
@@ -78,7 +87,11 @@
                 ?>
                 
             </div>
-            <input type="submit" name="buy" value="Buy now">
+            <?php
+            if(count($paymentsMethod)){
+                print('<input type="submit" name="buy" value="Buy now" id="buyInput">');
+            }?>
+            
         </div>
         
         <div id="saveCart" class="hidden">
