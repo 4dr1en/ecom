@@ -8,7 +8,7 @@
     <div id="h_right">
         <nav>
             <ul>
-                <li><a href="/categorie">Catégorie</a></li>
+                <li><a href="/categorie">Category</a></li>
                 
                 <?php
                 if(!isset($_SESSION['user'])){ ?>

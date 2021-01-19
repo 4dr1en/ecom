@@ -14,6 +14,9 @@
                 <li>
                     <a href="/account?action=edit">Edit personal information</a>
                 </li>
+                <li>
+                    <a href="/account?action=editPassword">Edit Password</a>
+                </li>
             </ul>
         </div>
         <div id="pageContent">
@@ -36,7 +39,10 @@
                 <div>
                     <p class="infoTitle">Phone number</p>
                     <p class="infoContent"> <?= $_SESSION['user']['phone']?> </p>
-                </div> 
+                </div>
+                <div>
+                    <p><?php if(isset($return)) {echo $return;} ?></p>  
+                </div>
             </div>
         </div>
         <?php if(isset($_GET['action']) && $_GET['action'] == 'edit') { ?>
@@ -52,6 +58,19 @@
                 <input type="tel" id="editPhone" name='phone'>
                 <button type="submit">Edit</button>
             </form>
+        </div>
+        <?php } ?>
+        <?php if(isset($_GET['action']) && $_GET['action'] == 'editPassword') { ?>
+        <div>
+            <form action="/account" method="post">
+                <label for="currentPassword">Current Password</label>
+                <input type="password" name="currentPassword" id="currentPassword">
+                <label for="newPassword">New Password</label>
+                <input type="password" name="newPassword" id="newPassword">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword">
+                <button type='submit'>Edit Password</button>
+            </form> 
         </div>
         <?php } ?>
         

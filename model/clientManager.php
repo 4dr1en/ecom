@@ -128,4 +128,39 @@ class ClientManager extends Manager{
                 throw $e;
             }
     }
+
+    public function editPassword($edit)
+    {
+        $stmt = $this->_pdo->prepare(
+            "UPDATE client
+            SET password = :edit
+            WHERE id = :id;
+        ");
+        $stmt->bindValue(':edit', $edit);
+        $stmt->bindValue(':id', $_SESSION['user']['id']);
+        try {
+            return $stmt->execute();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    public function getPersonalinfo()
+    {
+        $stmt = $this->_pdo->prepare(
+            "SELECT * 
+            FROM client
+            Where id= :id;"
+        );
+
+        $stmt->bindValue(':id', $_SESSION['user']['id']);
+        try {
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            $this->_pdo->rollBack();
+            throw $e;
+        }
+    }
 }
