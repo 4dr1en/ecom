@@ -25,6 +25,7 @@ if(isset($_SESSION['user'])){
     if(isset($_POST['currentPassword']) && password_verify($_POST['currentPassword'], $pInfo['password']))
     {
         if($_POST['newPassword'] === $_POST['confirmPassword']) {
+            echo("trololo");
             $hash = password_hash($_POST['newPassword'], PASSWORD_ARGON2ID);
             $editManager->editPassword($_POST['newPassword']);
             $return = "Your Password has been modified";
