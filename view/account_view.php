@@ -53,7 +53,7 @@
                         <input type="text" id="editLastname" name ="lastName">
                         <label for="editEmail" class="infoTitle">New Mail</label>
                         <input type="email" id="editEmail" name ='email'>
-                        <label for="editPhone class="infoTitle"">New Phone</label>
+                        <label for="editPhone" class="infoTitle">New Phone</label>
                         <input type="tel" id="editPhone" name='phone'>
                         <button type="submit">Edit</button>
                     </form>
@@ -64,7 +64,7 @@
                     <form action="/account" method="post">
                         <label for="currentPassword">Current Password</label>
                         <input type="password" name="currentPassword" id="currentPassword" class="passwordModify">
-                        <label for="newPassword">New Password</label>
+                        <label for="newPassword">New Password (8 characters at least)</label>
                         <input type="text" name="newPassword" id="newPassword" class="passwordModify">
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="text" name="confirmPassword" id="confirmPassword" class="passwordModify">
@@ -76,7 +76,7 @@
             </div>
         </div>
     <div>
-    <?php if(isset($return) && $_GET['action'] == 'editPassword'){echo($return);} ?>
+    <?php if(isset($return)){echo($return);} ?>
     </div>
 
 

@@ -9,15 +9,21 @@ body{
     position: relative;
 }
 
-/*page*/
+/*header*/
 
-#container{
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-}
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-#pageContent{
-    padding-top: 50px;
+    width: 100%;
+    height: 120px;
+
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    background-color: #131921;
+    color: white;
 }
 
 #pageContent h2{
@@ -69,15 +75,19 @@ body{
     color: white;
 }
 
-#sidebar a{
+header.deployed {
+    height: 100px;
+}
+
+#h_left{
+    display: flex;
+}
+
+#h_left>a{
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    padding-left: 20%;
-    color: rgb(41, 41, 41);
     text-decoration: none;
+    color: black;
 }
 
 #sidebar a>p{
@@ -87,6 +97,20 @@ body{
     font-weight: 600;
 }
 
+/*page*/
+
+#container{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+}
+
+#sidebar{
+    padding: 40px;
+}
+
+#pageContent{
+
+}
 
 /*footer*/
 
