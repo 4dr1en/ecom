@@ -1,0 +1,36 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5px;
+}
+
+#pageContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 10%;
+    padding: 5%;
+    background-color: white;
+    width: 60%;
+}
+
+@media (max-width: 1000px){
+    #pageContent{
+        width: 80%;
+    }
+}
+@media (max-width: 800px){
+    #pageContent{
+        width: 90%;
+    }
+}
+
+#quantity{
+    width: 30px;
+}
+
+.description{
+    margin-bottom: 30px;
+    max-width: 800px;
+}

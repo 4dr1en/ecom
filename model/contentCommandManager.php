@@ -19,15 +19,15 @@ class ContentCommandManager extends Manager{
         }
     }
 
-    public function setItemToCart($cartId, $productId){
-
+    public function setItemToCart($cartId, $productId, $quantity=1){
         $stmt = $this->_pdo->prepare(
             "INSERT INTO content_command(id_command , id_item, quantity ) 
-            VALUES ( :cartId, :id_item, 1)"
+            VALUES ( :cartId, :id_item, :quantity)"
         );
 
         $stmt->bindValue(':cartId', $cartId);
         $stmt->bindValue(':id_item', $productId);
+        $stmt->bindValue(':quantity', $quantity);
     
         try {
             return $stmt->execute();

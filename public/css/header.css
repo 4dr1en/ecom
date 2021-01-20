@@ -16,6 +16,15 @@ header {
     color: white;
 }
 
+@media (max-width: 800px){
+    header{
+        height: 160px;
+    }
+    body{
+        padding-top: 160px;
+    }
+}
+
 header img {
 
 }

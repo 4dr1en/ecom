@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </td>
-                <td><a href="/mycart?action=removeItem&idItem=<?= $productLine['id_item']?>">Remove</a></td>
+                <td><a href="/mycart?action=removeItem&idItem=<?= $productLine['id_item']?>"  class="btRed">Remove</a></td>
             </tr>
         <?php
         }
@@ -48,15 +48,15 @@
             <div id="prixInfo">
                 <p>
                     <span class="priceTitle">Ht&#8239: </span>
-                    <span id="priceHT">$&#8239<span><?= $ht ?></span></span>
+                    <span>$&#8239<span id="priceHT"><?= $ht ?></span></span>
                 </p>
                 <p>
                     <span class="priceTitle">Tva&#8239: </span>
-                    <span id="totalTVA"> $&#8239<span><?= $tva ?></span></span>
+                    <span>$&#8239<span id="totalTVA"><?= $tva ?></span></span>
                 </p>
                 <p>
                     <span class="priceTitle">Total&#8239: </span>
-                    <span id="priceTotal">$&#8239<span><?= $total ?></span></span>
+                    <span>$&#8239<span id="priceTotal"><?= $total ?></span></span>
                 </p>
             </div>
             <div id="modePayment">
@@ -103,7 +103,7 @@
     <?php
     }else{
     ?>
-        <div><p>Your cart is empty =(, <a href="/categorie">go shopping !</a></p></div>
+        <div id="msgEmpty"><p>Your cart is empty =(, <a href="/categorie">go shopping !</a></p></div>
     <?php } ?>
 </main>
 

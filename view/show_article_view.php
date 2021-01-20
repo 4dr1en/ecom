@@ -1,12 +1,22 @@
 <main>
     <?php
         if(isset($msgCart)){
-            print('<p>'.$msgCart.'</p>');
+            print($msgCart);
         }
+        
     ?>
-    <h2>Article#<?= $item['id']?></h2>
-    <p><?= $item['name']?></p>
-    <p><?= $item['description']?></p>
-    <a href="/article?action=addToCart&idProduct=<?=$item['id']?>">add to cart</a>
+    <div id="pageContent">
+        <p>Article #<?= $item['id']?></p>
+        <h2 class="nameItem"><?= $item['name']?></h2>
+        <img src="<?=$item['image']?>" alt="<?=$item['name']?>">
+        <p class="description"><?=htmlspecialchars($item['description']) ?></p>
+        <p>Price&#8239: $&#8239<span id="price"><?=$item['price']?></span></p>
+        <form action="/article" method="post">
+            <input type="number" min="1" max="9" step="1" name="quantity" id="quantity" value="1" data-price="<?=$item['price']?>">
+            <input type="hidden" name="idProduct" value="<?=$item['id']?>">
+            <input type="submit" class="btGreen" value="Add to cart">  
+        </form>
+    </div>
+    
 </main>
 

@@ -38,7 +38,7 @@
                             }
                             ?></p>
                             <p>
-                                <a href="/article<?= '?idProduct='.$item['id']?>" class="btn">See the product</a>
+                                <a href="/article?idProduct=<?=$item['id']?>" class="bt seeProduct">View Product</a>
                             </p>
                         </div>
                     </div>

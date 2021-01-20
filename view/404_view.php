@@ -1,5 +1,5 @@
 <main>
-    <h2>PAGE NOT FOUND</h2>
+    <h2 class="errorMsg">PAGE NOT FOUND</h2>
 </main>
 
 

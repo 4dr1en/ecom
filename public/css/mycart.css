@@ -57,23 +57,28 @@ td{
 
 #saveCart{
     display: inline-block;
-    opacity: 1;
-    transition: opacity 0.4s;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 200px;
+    transition: all 0.3s ease-out;
+    
 }
 
 #saveCart>input{
     padding: 20px 30px;
     font-size: 2rem;
-    background: white;
+    background: rgba(221, 238, 213 0.4);
     border: 2px solid black;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+#saveCart>input:hover{
+    font-size: 2.1rem;
+    background: rgba(221, 238, 213 0.4);
 }
 
 #saveCart.hidden{
-    display: none;
-    opacity: 0;
+    right: -300px;
 }
 
 /*commandInfo*/
@@ -119,4 +124,17 @@ td{
 
 .priceTotal{
     font-style : italic;
+}
+
+.paymentType{
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#msgEmpty{
+    display: flex;
+    justify-content: center;
+
+    font-size: 2rem;
+    margin-top: 100px;
 }

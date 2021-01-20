@@ -1,27 +1,33 @@
 #pageContent{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: start;
-    flex-flow: row wrap;
+    justify-content: center;
 
-    height: 100%;
 }
 
 #pageContent>div{
+    display: flex;
+    padding: 50px;
+    background-color: white;
+    align-items: center;
+    justify-content: start;
+    flex-flow: row wrap;
+    width: 80%;
     margin-top: 1%;
 }
+
 
 #imgProfile{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 40%;
     min-width: 200px;
-    margin-left: 20%;
 }
 
 #imgProfile>img{
-    width: 60%;
+    width: 40%;
     border-radius: 50%;
 }
 
@@ -32,22 +38,38 @@
     justify-content: space-around;
 
     max-width: 800px;
+    width: 60%;
 }
 
 #userInfos>div{
     display: grid;
     column-gap: 50px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 300px 300px;
 }
 
 .infoTitle{
     text-align: right;
     font-size: 1.1rem;
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .infoContent{
     display: flex;
     justify-content: left;
     font-size: 1.1rem;
+}
+
+#editInfos form,
+#editPassword form{
+    display: grid;
+    gap: 20px 40px;
+    grid-template-columns: 1fr 1.5fr;
+    width: 50%;
+    margin: 10px 25%
+}
+
+#editInfos button,
+#editPassword button{
+    margin:  5px 15%;
+    height: 30px;
 }
