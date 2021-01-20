@@ -1,7 +1,40 @@
+main{
+    display: flex;
+    justify-content: center;
+}
+
+#pageContent{
+    margin: 60px;
+    padding: 30px 30px 50px 30px;
+    width: 80%;
+    background-color: white;
+}
+
+
 #creditcard {
     display: none;
 }
 
 #paypal {
     display: none;
+}
+
+th, td{
+    padding: 15px 20px;
+}
+
+#addPayment{
+    margin-top: 50px;
+}
+
+#creditcard, #paypal{
+    padding: 20px;
+}
+
+#creditcard>*{
+    margin-top: 20px;
+}
+
+#paypalLink{
+    width: 200px;
 }
