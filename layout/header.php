@@ -9,7 +9,7 @@
         <form action="/categorie" method="GET">
             <input type="hidden" name="action" value="search">
             <input type="search" name="search" id="search">
-            <input type="submit" value="🔍">
+            <input type="submit" value="   "></input>
         </form>
     </div>
     <div id="h_right">
