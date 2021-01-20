@@ -1,7 +1,7 @@
 <header>
     <div id="h_left">
-        <a href="/">
-            <img src="public/img/logo.png" alt="logo" id="Logo">
+        <a href="/categorie">
+            <img src="/public/img/logo.png" alt="logo" id="Logo">
             <h1>Home</h1>
         </a>
     </div>
